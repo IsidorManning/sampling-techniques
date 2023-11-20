@@ -1,7 +1,7 @@
 # sampling-techniques
 
 
-# Background and contex
+# Background and context
 
 First of all, let me provide some information that is relevant to this project: when we generate random numbers we have often used the pseudo-random generator rand() which is a function that provides us with an integer from 0 to RAND_MAX. The process of generating numbers or samples by some specific technique, equation, or distribution is called "sampling".
 
