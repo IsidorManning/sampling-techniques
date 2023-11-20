@@ -1,7 +1,7 @@
 # sampling-techniques
 
 
-Background and context:
+# Background and contex
 
 First of all, let me provide some information that is relevant to this project: when we generate random numbers we have often used the pseudo-random generator rand() which is a function that provides us with an integer from 0 to RAND_MAX. The process of generating numbers or samples by some specific technique, equation, or distribution is called "sampling".
 
@@ -11,7 +11,7 @@ The goal was to code implementations for many distributions without using any ex
 Before moving on, there are a lot of maths included in this project and although I really enjoyed learning more about the details of each distribution, I don't think it is worth covering it in depth here nor in the documentation in the code. This is a computer science class so the goal of this project was to quickly search up the formulas of the distributions and then represent them in code. The goal is not to get a deep sense of what a specific distribution represents, how to calculate it by hand, and to know what every single one of its variables represents. In this case, we just need to have a somewhat broad understanding before we can implement it in code!
 
 
-The design:
+# The design
 
 All of the functionality is kept within a class called "Sampling". We define some private methods which are not intended for the user to use (this is the reason why it is private) such as get_random_prob(), calculate_factorial(), binomial_coefficient(), and gamma_function(). These are functions that only we define in order to later use them in the public methods for calculating the distributions themselves!
 We then have a bunch of public methods within the class Sampling; firstly, we have our good-old constructor which we only use to initialize the seed for the rand() function using the familiar line: srand((unsigned) time(nullptr)).
@@ -31,7 +31,7 @@ It is crucial for us to note that all of our distributions return numbers that a
 One last thing I want to talk about is the type of Not-a-number (nan or NaN)5. We use the nan_value variable to handle errors; more specifically we return this value to the end-user when they have inputted a value for a parameter that is not allowed (for example, giving a value of -0.4 for a parameter representing a probability).
 
 
-Challenges and lessons:
+# Challenges and lessons
 
 Other than learning more about the distributions themselves, I learned tons about data conversions as well as pseudo-random number generators (PRNGs) such as the rand() in our case. We also start to handle errors here which we have done before and which is really important when writing more sophisticated programs. I talk more about different challenges and problems that occurred in the comments of the code itself.  However, one thing that I found both very important and interesting is that the modulus operator (%) cannot be directly applied to floating-point numbers in C++. It can only be applied to integer numbers. I found out about this when I, throughout the process of making the project, tried to run the following line of code which produced a compiler error:
 
@@ -40,7 +40,7 @@ double generated_number = int_to_double(rand()) % (max - min + 1)
 Thanks for reading and I hope you found this interesting! I'll update the text and code if bugs or errors appear.
 
 
-Additional notes:
+# Additional notes
 
 1) What is "pseudo-random"?: What this term implies is that we have a number that appears to look random but that technically is not fully random. In our case, rand() is still initialized with a seed via the srand() function that ultimately determines what number gets generated.
 2) What is "proba"?: An acronym for "probability" :-)
